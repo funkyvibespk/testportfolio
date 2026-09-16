@@ -4,48 +4,54 @@ import { ExternalLink, Code, X } from 'lucide-react';
 import TicTacToe from './project_mocks/TicTacToe';
 import EcommerceMock from './project_mocks/EcommerceMock';
 import AgencyMock from './project_mocks/AgencyMock';
+import LogoDesignMock from './project_mocks/LogoDesignMock';
 import './Projects.css';
 
 const projectData = [
   {
     id: 1,
-    title: 'Full-Stack E-Commerce',
-    category: 'E-Commerce',
-    image: '/images/ecommerce.jpg',
-    tech: ['Next.js', 'React', 'Supabase', 'Node.js'],
-    desc: 'High-performance e-commerce platform with SSR, dynamic routing, and real-time database.',
-    liveUrl: '#',
-    githubUrl: '#'
-  },
-  {
-    id: 2,
-    title: 'Interactive Maze Solver',
-    category: 'Games',
-    image: '/images/game.jpg',
-    tech: ['React', 'HTML5 Canvas', 'Firebase', 'Algorithms'],
-    desc: 'Dynamic browser game featuring pathfinding algorithms and global score persistence.',
-    liveUrl: '#',
-    githubUrl: '#'
-  },
-  {
-    id: 3,
-    title: 'Synapse Digital Agency',
-    category: 'Web Apps',
+    title: 'Web-Apps',
+    category: 'Web-Apps',
     image: '/images/agency.jpg',
     tech: ['Next.js', 'React', 'Framer Motion'],
     desc: 'SEO-optimized agency portfolio with fluid responsive layouts and dynamic integrations.',
     liveUrl: '#',
     githubUrl: '#'
+  },
+  {
+    id: 2,
+    title: 'e-Commerce',
+    category: 'e-Commerce',
+    image: '/images/ecommerce.jpg',
+    tech: ['Next.js', 'React', 'Supabase'],
+    desc: 'High-performance e-commerce platform with SSR, dynamic routing, and real-time database.',
+    liveUrl: '#',
+    githubUrl: '#'
+  },
+  {
+    id: 3,
+    title: 'Logo-Design',
+    category: 'Logo-Design',
+    image: '/images/ecommerce.jpg', // Dummy, will be covered by CSS in 3D view
+    tech: ['Illustrator', 'Figma', 'SVG'],
+    desc: 'Modern brand identities and vector graphics with interactive color explorations.',
+    liveUrl: '#',
+    githubUrl: '#'
+  },
+  {
+    id: 4,
+    title: 'Online-Games',
+    category: 'Online-Games',
+    image: '/images/game.jpg',
+    tech: ['React', 'Canvas', 'Algorithms'],
+    desc: 'Dynamic browser game featuring pathfinding algorithms and global score persistence.',
+    liveUrl: '#',
+    githubUrl: '#'
   }
 ];
 
-const categories = ['All', 'Web Apps', 'E-Commerce', 'Games'];
-
 const Projects = () => {
-  const [filter, setFilter] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
-
-  const filteredProjects = projectData.filter(p => filter === 'All' || p.category === filter);
 
   return (
     <div className="projects-container">
@@ -53,57 +59,21 @@ const Projects = () => {
         Featured <span className="text-gradient">Projects</span>
       </h2>
 
-      <div className="filters">
-        {categories.map(cat => (
-          <button
-            key={cat}
-            className={`filter-btn ${filter === cat ? 'active' : ''}`}
-            onClick={() => setFilter(cat)}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
-
-      <motion.div layout className="projects-grid">
-        <AnimatePresence>
-          {filteredProjects.map((project) => (
-            <motion.div
-              layout
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.3 }}
+      <div className="projects-isometric-container">
+        <div className="isometric-wrapper">
+          {projectData.map((project, index) => (
+            <div
               key={project.id}
-              className="project-card glass-panel"
+              className={`isometric-card card-${index + 1} glass-panel`}
+              onClick={() => setSelectedProject(project)}
             >
-              <div className="project-image-wrapper">
-                <img src={project.image} alt={project.title} className="project-image" />
-                <div className="project-overlay">
-                  <a href={project.liveUrl} className="overlay-btn"><ExternalLink size={20} /> Live Demo</a>
-                  <a href={project.githubUrl} className="overlay-btn"><Code size={20} /> Code</a>
-                </div>
+              <div className="iso-card-content">
+                <h3 className="iso-title">{project.title}</h3>
               </div>
-              
-              <div className="project-info">
-                <h3>{project.title}</h3>
-                <p>{project.desc}</p>
-                
-                <div className="tech-stack">
-                  {project.tech.map(t => (
-                    <span key={t} className="tech-tag">{t}</span>
-                  ))}
-                </div>
-              </div>
-              <div 
-                className="interactive-overlay-click"
-                onClick={() => setSelectedProject(project)}
-                style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1, cursor: 'pointer'}}
-              />
-            </motion.div>
+            </div>
           ))}
-        </AnimatePresence>
-      </motion.div>
+        </div>
+      </div>
 
       <AnimatePresence>
         {selectedProject && (
@@ -126,9 +96,10 @@ const Projects = () => {
               </button>
               
               <div className="modal-interactive-container" style={{ padding: '2rem 2rem 0 2rem' }}>
-                {selectedProject.id === 1 && <EcommerceMock />}
-                {selectedProject.id === 2 && <TicTacToe />}
-                {selectedProject.id === 3 && <AgencyMock />}
+                {selectedProject.id === 1 && <AgencyMock />}
+                {selectedProject.id === 2 && <EcommerceMock />}
+                {selectedProject.id === 3 && <LogoDesignMock />}
+                {selectedProject.id === 4 && <TicTacToe />}
               </div>
               
               <div className="modal-details">

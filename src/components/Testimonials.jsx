@@ -40,7 +40,7 @@ const testimonialsData = [
     id: 5,
     name: 'Memona Iftikhar',
     role: 'Marketing Head, Global Reach',
-    content: 'Working with Kamran was a breeze. He brought our digital agency vision to life with seamless animations and a truly premium user experience.',
+    content: 'Working with Kamran was a breeze. He brought our digital agency vision to life with seamless animations and a truly premium user experience. His communication, dedication to deadlines, and proactive problem-solving made the entire process incredibly smooth from start to finish.',
     rating: 5,
     initial: 'M'
   }
