@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Quote, ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Star, Heart, MessageCircle, Send, Bookmark } from 'lucide-react';
 import './Testimonials.css';
 
 const testimonialsData = [
@@ -115,27 +115,43 @@ const Testimonials = () => {
                   paginate(-1);
                 }
               }}
-              className="testimonial-card glass-panel"
+              className="testimonial-card-wrapper"
             >
-              <Quote className="quote-icon" size={48} />
               
-              <div className="stars">
+              <div className="mtc-main glass-panel">
+                <div className="mtc-subtitle">client review</div>
+                <p className="mtc-text">"{currentTestimonial.content}"</p>
+                <div className="mtc-divider"></div>
+                <p className="mtc-subtext">
+                  {currentTestimonial.name} has partnered with us as a {currentTestimonial.role} and successfully elevated their digital presence.
+                </p>
+              </div>
+
+              <div className="mtc-name glass-panel">
+                {currentTestimonial.name}
+              </div>
+              
+              <div className="mtc-avatar glass-panel">
+                {currentTestimonial.initial}
+              </div>
+              
+              <div className="mtc-stars glass-panel">
                 {[...Array(currentTestimonial.rating)].map((_, i) => (
-                  <Star key={i} size={20} className="star-icon" fill="currentColor" />
+                  <Star key={i} size={16} className="star-icon" fill="currentColor" />
                 ))}
               </div>
-              
-              <p className="testimonial-text">"{currentTestimonial.content}"</p>
-              
-              <div className="client-info">
-                <div className="client-avatar">
-                  {currentTestimonial.initial}
+
+              <div className="mtc-footer glass-panel">
+                <div className="mtc-footer-left">
+                  <Heart size={20} className="mtc-icon" />
+                  <MessageCircle size={20} className="mtc-icon" />
+                  <Send size={20} className="mtc-icon" />
                 </div>
-                <div>
-                  <h4 className="client-name">{currentTestimonial.name}</h4>
-                  <p className="client-role">{currentTestimonial.role}</p>
+                <div className="mtc-footer-right">
+                  <Bookmark size={20} className="mtc-icon" />
                 </div>
               </div>
+
             </motion.div>
           </AnimatePresence>
         </div>

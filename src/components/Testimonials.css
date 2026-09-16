@@ -13,7 +13,7 @@
   justify-content: center;
   width: 100%;
   gap: 2rem;
-  margin-top: 2rem;
+  margin-top: 4rem; /* Extra margin for the overlapping header */
 }
 
 .carousel-content {
@@ -26,78 +26,141 @@
   perspective: 1000px;
 }
 
-.testimonial-card {
-  width: 100%;
-  padding: 3rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+.testimonial-card-wrapper {
   position: relative;
-  overflow: hidden;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
   cursor: grab;
+  padding: 40px 20px 40px 40px; /* Give room for overlapping elements */
 }
 
-.testimonial-card:active {
+.testimonial-card-wrapper:active {
   cursor: grabbing;
 }
 
-.quote-icon {
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
-  color: var(--accent-primary);
-  opacity: 0.2;
+/* Glass panel common styles are inherited from global CSS */
+.glass-panel {
+  background: var(--glass-bg, rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.1));
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
 
-.stars {
-  display: flex;
-  gap: 0.25rem;
-  margin-bottom: 1.5rem;
-  color: #fbbf24;
+/* Main Body */
+.mtc-main {
+  position: relative;
+  z-index: 1;
+  padding: 4rem 3rem 5rem 3rem;
+  border-radius: 30px;
+  text-align: center;
 }
 
-.testimonial-text {
-  font-size: 1.25rem;
-  line-height: 1.8;
-  color: var(--text-primary);
-  margin-bottom: 2.5rem;
+.mtc-subtitle {
+  font-family: inherit;
+  font-size: 1.5rem;
   font-style: italic;
   font-weight: 300;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
 }
 
-.client-info {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+.mtc-text {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
 }
 
-.client-avatar {
-  width: 60px;
-  height: 60px;
+.mtc-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--glass-border);
+  margin: 2rem 0;
+}
+
+.mtc-subtext {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Name Pill */
+.mtc-name {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  z-index: 3;
+  padding: 1.2rem 3rem;
+  border-radius: 40px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* Avatar Circle */
+.mtc-avatar {
+  position: absolute;
+  top: -10px;
+  left: 260px; /* Positioned just overlapping the name pill */
+  z-index: 4;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent-primary), var(--accent-neon));
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
   color: #000;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-neon));
   box-shadow: 0 4px 15px rgba(0, 255, 204, 0.3);
 }
 
-.client-name {
-  font-size: 1.2rem;
-  margin: 0 0 0.25rem 0;
-  color: var(--text-primary);
-  text-align: left;
+/* Stars Pill */
+.mtc-stars {
+  position: absolute;
+  top: 90px;
+  left: 0px;
+  z-index: 2;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  display: flex;
+  gap: 0.3rem;
+  color: #fbbf24;
 }
 
-.client-role {
-  font-size: 0.9rem;
+/* Footer Pill */
+.mtc-footer {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  width: 85%;
+  padding: 1.2rem 2rem;
+  border-radius: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mtc-footer-left {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.mtc-icon {
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.mtc-icon:hover {
   color: var(--accent-primary);
-  margin: 0;
-  text-align: left;
+  transform: scale(1.1);
 }
 
 .carousel-btn {
@@ -148,21 +211,47 @@
   box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
 }
 
-/* Responsive */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
   .carousel-wrapper {
     gap: 1rem;
   }
   
-  .testimonial-card {
-    padding: 2rem;
+  .testimonial-card-wrapper {
+    padding: 20px 10px;
   }
   
-  .testimonial-text {
-    font-size: 1.1rem;
+  .mtc-main {
+    padding: 5rem 1.5rem 4rem 1.5rem;
+  }
+
+  .mtc-name {
+    top: -10px;
+    left: 10px;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+  }
+
+  .mtc-avatar {
+    top: -20px;
+    left: 200px;
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+
+  .mtc-stars {
+    top: 50px;
+    left: -5px;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .mtc-footer {
+    width: 90%;
+    padding: 1rem 1.5rem;
   }
   
   .carousel-btn {
-    display: none; /* Hide buttons on mobile, allow swipe */
+    display: none;
   }
 }
