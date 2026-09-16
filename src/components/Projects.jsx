@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Code, X } from 'lucide-react';
+import TicTacToe from './project_mocks/TicTacToe';
+import EcommerceMock from './project_mocks/EcommerceMock';
+import AgencyMock from './project_mocks/AgencyMock';
 import './Projects.css';
 
 const projectData = [
@@ -122,8 +125,10 @@ const Projects = () => {
                 <X size={24} />
               </button>
               
-              <div className="modal-image-container">
-                <img src={selectedProject.image} alt={selectedProject.title} />
+              <div className="modal-interactive-container" style={{ padding: '2rem 2rem 0 2rem' }}>
+                {selectedProject.id === 1 && <EcommerceMock />}
+                {selectedProject.id === 2 && <TicTacToe />}
+                {selectedProject.id === 3 && <AgencyMock />}
               </div>
               
               <div className="modal-details">

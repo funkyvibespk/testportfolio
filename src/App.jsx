@@ -4,7 +4,6 @@ import './App.css';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
-import Game from './components/Game';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ParticlesBackground from './components/ParticlesBackground';
@@ -40,7 +39,6 @@ function App() {
         <a className={`nav-link ${activeSection === 'home' ? 'active' : ''}`} onClick={() => scrollTo('home')}>Home</a>
         <a className={`nav-link ${activeSection === 'projects' ? 'active' : ''}`} onClick={() => scrollTo('projects')}>Projects</a>
         <a className={`nav-link ${activeSection === 'skills' ? 'active' : ''}`} onClick={() => scrollTo('skills')}>Skills</a>
-        <a className={`nav-link ${activeSection === 'game' ? 'active' : ''}`} onClick={() => scrollTo('game')}>Play</a>
         <a className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`} onClick={() => scrollTo('contact')}>Contact</a>
         <button className="theme-toggle" onClick={toggleTheme}>
           {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
@@ -51,7 +49,6 @@ function App() {
         <section id="home"><Hero /></section>
         <section id="projects"><Projects /></section>
         <section id="skills"><Skills /></section>
-        <section id="game"><Game /></section>
         <section id="contact"><Contact /></section>
       </main>
       

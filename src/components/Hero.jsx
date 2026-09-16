@@ -31,9 +31,6 @@ const Hero = () => {
             <button className="glass-btn primary" onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}>
               View Work <ArrowRight size={18} />
             </button>
-            <button className="glass-btn secondary" onClick={() => document.getElementById('game').scrollIntoView({ behavior: 'smooth' })}>
-              Play Mini-Game
-            </button>
           </div>
         </motion.div>
       </div>
