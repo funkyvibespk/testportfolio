@@ -60,7 +60,6 @@
 .mtc-subtitle {
   font-family: inherit;
   font-size: 1.5rem;
-  font-style: italic;
   font-weight: 300;
   color: var(--text-primary);
   margin-bottom: 2rem;

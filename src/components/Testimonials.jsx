@@ -6,27 +6,43 @@ import './Testimonials.css';
 const testimonialsData = [
   {
     id: 1,
-    name: 'Sarah Jenkins',
+    name: 'Irfan Khan',
     role: 'CEO, TechNova',
     content: 'Kamran transformed our outdated platform into a lightning-fast modern application. His attention to detail in the UI and absolute mastery over React exceeded our expectations.',
+    rating: 5,
+    initial: 'I'
+  },
+  {
+    id: 2,
+    name: 'Ayesha Azeem',
+    role: 'Founder, E-Shop Solutions',
+    content: 'The e-commerce dashboard he built for us handled our Black Friday traffic without a hitch. Incredible full-stack skills and a great communicator throughout the project.',
+    rating: 5,
+    initial: 'A'
+  },
+  {
+    id: 3,
+    name: 'Farman Tariq',
+    role: 'Creative Director, Studio Aura',
+    content: 'We needed a portfolio that stood out. Kamran delivered an interactive, fluid, and visually stunning website that has won us multiple new clients. Highly recommended!',
+    rating: 5,
+    initial: 'F'
+  },
+  {
+    id: 4,
+    name: 'Saim Ahmed',
+    role: 'Operations Manager, LogiSys',
+    content: 'An exceptional developer who understands both design aesthetics and complex system architectures. The interactive data visualizations he created are phenomenal.',
     rating: 5,
     initial: 'S'
   },
   {
-    id: 2,
-    name: 'Marcus Chen',
-    role: 'Founder, E-Shop Solutions',
-    content: 'The e-commerce dashboard he built for us handled our Black Friday traffic without a hitch. Incredible full-stack skills and a great communicator throughout the project.',
+    id: 5,
+    name: 'Memona Iftikhar',
+    role: 'Marketing Head, Global Reach',
+    content: 'Working with Kamran was a breeze. He brought our digital agency vision to life with seamless animations and a truly premium user experience.',
     rating: 5,
     initial: 'M'
-  },
-  {
-    id: 3,
-    name: 'Elena Rodriguez',
-    role: 'Creative Director, Studio Aura',
-    content: 'We needed a portfolio that stood out. Kamran delivered an interactive, fluid, and visually stunning website that has won us multiple new clients. Highly recommended!',
-    rating: 5,
-    initial: 'E'
   }
 ];
 
@@ -119,7 +135,7 @@ const Testimonials = () => {
             >
               
               <div className="mtc-main glass-panel">
-                <div className="mtc-subtitle">client review</div>
+                <div className="mtc-subtitle">Client Review</div>
                 <p className="mtc-text">"{currentTestimonial.content}"</p>
                 <div className="mtc-divider"></div>
                 <p className="mtc-subtext">
