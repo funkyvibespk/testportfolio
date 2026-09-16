@@ -50,7 +50,7 @@
 /* Sections */
 section {
   padding: 60px 5%;
-  min-height: 100vh;
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -60,7 +60,7 @@ section {
 
 .section-title {
   font-size: 3rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   text-align: center;
 }
 

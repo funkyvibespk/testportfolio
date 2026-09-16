@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Code } from 'lucide-react';
+import { ExternalLink, Code, X } from 'lucide-react';
 import './Projects.css';
 
 const projectData = [
@@ -40,6 +40,7 @@ const categories = ['All', 'Web Apps', 'E-Commerce', 'Games'];
 
 const Projects = () => {
   const [filter, setFilter] = useState('All');
+  const [selectedProject, setSelectedProject] = useState(null);
 
   const filteredProjects = projectData.filter(p => filter === 'All' || p.category === filter);
 
@@ -91,10 +92,57 @@ const Projects = () => {
                   ))}
                 </div>
               </div>
+              <div 
+                className="interactive-overlay-click"
+                onClick={() => setSelectedProject(project)}
+                style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1, cursor: 'pointer'}}
+              />
             </motion.div>
           ))}
         </AnimatePresence>
       </motion.div>
+
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div 
+            className="project-modal-backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedProject(null)}
+          >
+            <motion.div 
+              className="project-modal-content glass-panel"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button className="close-modal-btn" onClick={() => setSelectedProject(null)}>
+                <X size={24} />
+              </button>
+              
+              <div className="modal-image-container">
+                <img src={selectedProject.image} alt={selectedProject.title} />
+              </div>
+              
+              <div className="modal-details">
+                <h2>{selectedProject.title}</h2>
+                <p>{selectedProject.desc}</p>
+                <div className="tech-stack" style={{ margin: '1rem 0' }}>
+                  {selectedProject.tech.map(t => (
+                    <span key={t} className="tech-tag">{t}</span>
+                  ))}
+                </div>
+                <div className="modal-actions">
+                  <a href={selectedProject.liveUrl} className="primary-btn"><ExternalLink size={20} /> View Live</a>
+                  <a href={selectedProject.githubUrl} className="secondary-btn"><Code size={20} /> Source Code</a>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

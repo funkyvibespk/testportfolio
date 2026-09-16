@@ -7,6 +7,7 @@ import Skills from './components/Skills';
 import Game from './components/Game';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ParticlesBackground from './components/ParticlesBackground';
 
 function App() {
   const [theme, setTheme] = useState('dark');
@@ -30,7 +31,8 @@ function App() {
 
   return (
     <div className="app-container">
-      {/* Background Glows */}
+      {/* Background Glows and Particles */}
+      <ParticlesBackground />
       <div className="bg-glow" style={{ top: '-10%', left: '-10%' }}></div>
       <div className="bg-glow" style={{ bottom: '10%', right: '-10%', background: 'radial-gradient(circle, var(--accent-secondary) 0%, transparent 60%)' }}></div>
 
