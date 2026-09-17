@@ -1,10 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Code, X } from 'lucide-react';
-import TicTacToe from './project_mocks/TicTacToe';
-import EcommerceMock from './project_mocks/EcommerceMock';
-import AgencyMock from './project_mocks/AgencyMock';
-import LogoDesignMock from './project_mocks/LogoDesignMock';
+import { ExternalLink, Code, X, Monitor, Layers, Sparkles } from 'lucide-react';
 import './Projects.css';
 
 const projectData = [
@@ -12,41 +8,56 @@ const projectData = [
     id: 1,
     title: 'Web-Apps',
     category: 'Web-Apps',
-    tech: ['Next.js', 'React', 'Framer Motion'],
-    desc: 'SEO-optimized web applications with fluid responsive layouts and dynamic integrations.',
-    liveUrl: '#',
-    githubUrl: '#'
+    tech: ['Next.js', 'React', 'Tailwind CSS', 'Framer Motion'],
+    desc: 'Full-stack dynamic web applications featuring modern dashboard interfaces, fluid responsive design, server-side rendering, and seamless API integrations.',
+    liveUrl: 'https://kamrankhan.vercel.app',
+    githubUrl: 'https://github.com/funkyvibespk',
+    showcase: {
+      tagline: 'Modern Agency & Web App Interface',
+      features: ['Server-Side Rendering (SSR)', 'Dynamic Glassmorphism UI', 'Responsive Across All Devices']
+    }
   },
   {
     id: 2,
     title: 'e-Commerce',
     category: 'e-Commerce',
-    tech: ['Next.js', 'React', 'Supabase'],
-    desc: 'High-performance e-commerce platforms with real-time database integrations.',
+    tech: ['Next.js', 'React', 'Supabase', 'Tailwind'],
+    desc: 'High-performance e-commerce store with real-time product database management, interactive cart systems, dynamic product filtering, and fast checkout flow.',
     liveUrl: '#',
-    githubUrl: '#'
+    githubUrl: 'https://github.com/funkyvibespk',
+    showcase: {
+      tagline: 'High-Conversion Storefront Platform',
+      features: ['Real-Time Inventory Database', 'Instant Search & Filter', 'Secure Checkout UI']
+    }
   },
   {
     id: 3,
     title: 'Logo-Design',
     category: 'Logo-Design',
-    tech: ['Illustrator', 'SVG', 'Branding'],
-    desc: 'Modern brand identities and vector graphics with custom visual themes.',
+    tech: ['Illustrator', 'SVG', 'Branding & Identity'],
+    desc: 'Modern visual identity designs, vector logos, dark neon graphics, and complete visual branding guidelines engineered for web and apparel.',
     liveUrl: '#',
-    githubUrl: '#'
+    githubUrl: 'https://github.com/funkyvibespk',
+    showcase: {
+      tagline: 'DFV & Digital Brand Identity System',
+      features: ['Vector Scalable SVG Graphics', 'Dark Neon Theme Palettes', 'Typography & Mockup Assets']
+    }
   },
   {
     id: 4,
     title: 'Online-Games',
     category: 'Online-Games',
-    tech: ['React', 'Canvas', 'Algorithms'],
-    desc: 'Dynamic browser games featuring interactive mechanics and state persistence.',
+    tech: ['React', 'JavaScript Canvas', 'Algorithms'],
+    desc: 'Interactive browser-based games including Tic-Tac-Toe and Maze Pathfinding built with pure state logic, custom canvas rendering, and win-condition algorithms.',
     liveUrl: '#',
-    githubUrl: '#'
+    githubUrl: 'https://github.com/funkyvibespk',
+    showcase: {
+      tagline: 'Interactive Canvas Browser Experience',
+      features: ['Pathfinding Algorithms', 'Real-Time Score Tracking', 'Smooth Canvas Animations']
+    }
   }
 ];
 
-// Custom 3D positions and tilt degrees for each card
 const cardPositions = [
   { rx: 25, ry: -15, rz: 4, offset: 0 },
   { rx: 25, ry: -15, rz: 2, offset: 15 },
@@ -63,7 +74,7 @@ const Projects = () => {
         Featured <span className="text-gradient">Projects</span>
       </h2>
 
-      {/* Forced 3D Perspective Scene */}
+      {/* 3D Glassmorphism Cards Container */}
       <div 
         style={{
           perspective: '1000px',
@@ -144,7 +155,7 @@ const Projects = () => {
         </div>
       </div>
 
-      {/* Interactive Modal */}
+      {/* Interactive Modal Popup */}
       <AnimatePresence>
         {selectedProject && (
           <motion.div 
@@ -156,25 +167,45 @@ const Projects = () => {
           >
             <motion.div 
               className="project-modal-content"
-              initial={{ scale: 0.8, opacity: 0 }}
+              initial={{ scale: 0.85, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
+              exit={{ scale: 0.85, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
             >
               <button className="close-modal-btn" onClick={() => setSelectedProject(null)}>
                 <X size={20} />
               </button>
               
-              <div className="modal-interactive-container" style={{ padding: '2rem 2rem 0 2rem' }}>
-                {selectedProject.id === 1 && <AgencyMock />}
-                {selectedProject.id === 2 && <EcommerceMock />}
-                {selectedProject.id === 3 && <LogoDesignMock />}
-                {selectedProject.id === 4 && <TicTacToe />}
+              {/* Interactive Showcase Preview Header */}
+              <div style={{
+                background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(6, 182, 212, 0.2))',
+                borderRadius: '16px',
+                padding: '2rem',
+                margin: '1.5rem 1.5rem 0 1.5rem',
+                border: '1px solid rgba(255, 255, 255, 0.12)',
+                textAlign: 'left'
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: '#06b6d4', marginBottom: '0.5rem', fontSize: '0.9rem', fontWeight: '600' }}>
+                  <Monitor size={18} />
+                  <span>Interactive Showcase</span>
+                </div>
+                <h3 style={{ fontSize: '1.6rem', margin: '0 0 0.5rem 0', color: '#fff' }}>
+                  {selectedProject.showcase.tagline}
+                </h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', marginTop: '1rem' }}>
+                  {selectedProject.showcase.features.map((feat, i) => (
+                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#d4d4d8', fontSize: '0.88rem' }}>
+                      <Sparkles size={14} color="#c084fc" />
+                      <span>{feat}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-              
-              <div className="modal-details">
-                <h2>{selectedProject.title}</h2>
-                <p>{selectedProject.desc}</p>
+
+              {/* Project Details & Tech Stack */}
+              <div className="modal-details" style={{ padding: '1.5rem 2rem 2rem 2rem' }}>
+                <h2 style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>{selectedProject.title}</h2>
+                <p style={{ color: '#a1a1aa', lineHeight: 1.6, fontSize: '0.95rem' }}>{selectedProject.desc}</p>
                 
                 <div className="tech-stack" style={{ margin: '1.2rem 0' }}>
                   {selectedProject.tech.map(t => (
@@ -182,9 +213,13 @@ const Projects = () => {
                   ))}
                 </div>
                 
-                <div className="modal-actions">
-                  <a href={selectedProject.liveUrl} className="primary-btn"><ExternalLink size={18} /> View Live</a>
-                  <a href={selectedProject.githubUrl} className="secondary-btn"><Code size={18} /> Source Code</a>
+                <div className="modal-actions" style={{ marginTop: '1.5rem' }}>
+                  <a href={selectedProject.liveUrl} target="_blank" rel="noreferrer" className="primary-btn">
+                    <ExternalLink size={18} /> View Live Demo
+                  </a>
+                  <a href={selectedProject.githubUrl} target="_blank" rel="noreferrer" className="secondary-btn">
+                    <Code size={18} /> View Source Code
+                  </a>
                 </div>
               </div>
             </motion.div>
