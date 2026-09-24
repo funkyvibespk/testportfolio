@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X, Home, Briefcase, Code, Star } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import './App.css';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
@@ -45,20 +45,16 @@ function App() {
             </button>
           )}
           <a className={`nav-link ${activeSection === 'home' ? 'active' : ''}`} onClick={() => scrollTo('home')}>
-            {isMobileMenuOpen && <Home size={20} className="nav-icon" />}
-            <span>Home</span>
+            Home
           </a>
           <a className={`nav-link ${activeSection === 'projects' ? 'active' : ''}`} onClick={() => scrollTo('projects')}>
-            {isMobileMenuOpen && <Briefcase size={20} className="nav-icon" />}
-            <span>Projects</span>
+            Projects
           </a>
           <a className={`nav-link ${activeSection === 'skills' ? 'active' : ''}`} onClick={() => scrollTo('skills')}>
-            {isMobileMenuOpen && <Code size={20} className="nav-icon" />}
-            <span>Skills</span>
+            Skills
           </a>
           <a className={`nav-link ${activeSection === 'testimonials' ? 'active' : ''}`} onClick={() => scrollTo('testimonials')}>
-            {isMobileMenuOpen && <Star size={20} className="nav-icon" />}
-            <span>Reviews</span>
+            Reviews
           </a>
         </div>
 

@@ -188,21 +188,13 @@ section {
   
   .nav-link {
     font-size: 1.1rem;
-    width: 200px; /* fixed width to keep icons aligned while centering the whole block */
-    text-align: left;
+    width: 100%;
+    text-align: center;
     padding: 0.5rem 1rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    justify-content: center;
   }
   
   .nav-link:hover {
     transform: none;
-  }
-  
-  .nav-icon {
-    opacity: 0.8;
   }
   
   section {
