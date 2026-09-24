@@ -15,6 +15,18 @@
   .skills-grid {
     grid-template-columns: 1fr;
   }
+  
+  .skills-card {
+    padding: 1.5rem !important;
+  }
+
+  .skills-visual {
+    min-height: 300px !important;
+  }
+  
+  .orb-container {
+    transform: scale(0.8);
+  }
 }
 
 .skills-card {

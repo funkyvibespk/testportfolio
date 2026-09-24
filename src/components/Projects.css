@@ -118,3 +118,24 @@
   border-radius: 12px;
   text-decoration: none;
 }
+
+@media (max-width: 768px) {
+  .modal-actions {
+    flex-direction: column;
+  }
+  .primary-btn, .secondary-btn {
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    box-sizing: border-box;
+  }
+  .project-modal-content {
+    max-height: 85vh;
+  }
+  .modal-details {
+    padding: 1.5rem;
+  }
+  .modal-details h2 {
+    font-size: 1.5rem;
+  }
+}
