@@ -12,11 +12,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="hero-badge glass-panel" style={{ cursor: 'pointer' }} onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>
-            <Terminal size={16} />
-            <span>Available for new projects</span>
-          </div>
-          
+
           <h1 className="hero-title">
             Hi, I'm <span className="text-gradient">Kamran Ahmed Khan</span>
           </h1>
@@ -27,11 +23,6 @@ const Hero = () => {
             high-performance e-commerce platforms, dynamic browser games, and responsive portfolios.
           </p>
           
-          <div className="hero-actions">
-            <button className="glass-btn primary" onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}>
-              View Work <ArrowRight size={18} />
-            </button>
-          </div>
         </motion.div>
       </div>
     </div>
