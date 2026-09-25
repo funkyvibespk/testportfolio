@@ -34,16 +34,11 @@ function App() {
       <div className="bg-glow" style={{ bottom: '10%', right: '-10%', background: 'radial-gradient(circle, var(--accent-secondary) 0%, transparent 60%)' }}></div>
 
       <nav className="floating-nav glass-panel">
-        <button className={`mobile-menu-btn ${isMobileMenuOpen ? 'hidden' : ''}`} onClick={toggleMenu}>
+        <button className="mobile-menu-btn" onClick={toggleMenu}>
           <Menu size={24} />
         </button>
 
-        <div className={`nav-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
-          {isMobileMenuOpen && (
-            <button className="mobile-close-btn" onClick={toggleMenu}>
-              <X size={28} />
-            </button>
-          )}
+        <div className="nav-links desktop-only">
           <a className={`nav-link ${activeSection === 'home' ? 'active' : ''}`} onClick={() => scrollTo('home')}>
             Home
           </a>
@@ -58,13 +53,31 @@ function App() {
           </a>
         </div>
 
-        {!isMobileMenuOpen && (
-          <button className="cta-btn" onClick={() => scrollTo('contact')}>
-            <span className="status-dot"></span>
-            <span className="cta-text">Available</span>
-          </button>
-        )}
+        <button className="cta-btn" onClick={() => scrollTo('contact')}>
+          <span className="status-dot"></span>
+          <span className="cta-text">Available</span>
+        </button>
       </nav>
+
+      <div className={`mobile-overlay ${isMobileMenuOpen ? 'open' : ''}`}>
+        <button className="mobile-close-btn" onClick={toggleMenu}>
+          <X size={28} />
+        </button>
+        <div className="mobile-nav-links">
+          <a className={`nav-link ${activeSection === 'home' ? 'active' : ''}`} onClick={() => scrollTo('home')}>
+            Home
+          </a>
+          <a className={`nav-link ${activeSection === 'projects' ? 'active' : ''}`} onClick={() => scrollTo('projects')}>
+            Projects
+          </a>
+          <a className={`nav-link ${activeSection === 'skills' ? 'active' : ''}`} onClick={() => scrollTo('skills')}>
+            Skills
+          </a>
+          <a className={`nav-link ${activeSection === 'testimonials' ? 'active' : ''}`} onClick={() => scrollTo('testimonials')}>
+            Reviews
+          </a>
+        </div>
+      </div>
 
       <main>
         <section id="home"><Hero /></section>
