@@ -61,7 +61,7 @@ function App() {
         {!isMobileMenuOpen && (
           <button className="cta-btn" onClick={() => scrollTo('contact')}>
             <span className="status-dot"></span>
-            <span className="cta-text">Available for New Projects</span>
+            <span className="cta-text">Available</span>
           </button>
         )}
       </nav>
