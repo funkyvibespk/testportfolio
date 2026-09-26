@@ -44,9 +44,11 @@
   font-size: clamp(1.4rem, 5.5vw, 5rem);
   line-height: 1.15;
   margin-bottom: 1rem;
-  white-space: nowrap;        /* keep everything on one line */
-  overflow: hidden;
-  text-overflow: ellipsis;    /* graceful fallback if truly too narrow */
+}
+
+/* Name always on its own line on every screen size */
+.hero-title .text-gradient {
+  display: block;
 }
 
 .hero-subtitle {
@@ -96,16 +98,8 @@
     max-width: 100%;
   }
 
-  /* Allow natural wrapping on mobile */
   .hero-title {
-    white-space: normal;
-    overflow: visible;
-    font-size: clamp(1.6rem, 6vw, 3rem);
-  }
-
-  /* Push the name to its own line */
-  .hero-title .text-gradient {
-    display: block;
+    font-size: clamp(1.6rem, 7vw, 3rem);
   }
 
   .hero-description {
