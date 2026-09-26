@@ -22,9 +22,9 @@
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 800px;
+  max-width: 900px;
   text-align: center;
-  padding: 2rem;
+  padding: 2rem 1rem;
 }
 
 .hero-badge {
@@ -41,9 +41,12 @@
 }
 
 .hero-title {
-  font-size: clamp(2rem, 7vw, 5rem);
-  line-height: 1.1;
+  font-size: clamp(1.4rem, 5.5vw, 5rem);
+  line-height: 1.15;
   margin-bottom: 1rem;
+  white-space: nowrap;        /* keep everything on one line */
+  overflow: hidden;
+  text-overflow: ellipsis;    /* graceful fallback if truly too narrow */
 }
 
 .hero-subtitle {
@@ -89,7 +92,8 @@
 /* ─── Tablet ─── */
 @media (max-width: 768px) {
   .hero-content {
-    padding: 1.5rem 1rem;
+    padding: 1.5rem 0.5rem;
+    max-width: 100%;
   }
 
   .hero-description {
