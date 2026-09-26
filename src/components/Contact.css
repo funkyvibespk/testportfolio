@@ -11,15 +11,8 @@
   padding: 3rem;
 }
 
-@media (max-width: 768px) {
-  .contact-wrapper {
-    grid-template-columns: 1fr;
-    padding: 2rem;
-  }
-}
-
 .contact-info h3 {
-  font-size: 1.8rem;
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
   margin-bottom: 1rem;
 }
 
@@ -27,11 +20,14 @@
   color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 2rem;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
 }
 
 .contact-details p {
   margin-bottom: 0.5rem;
   color: var(--text-primary);
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  word-break: break-all;
 }
 
 .contact-form {
@@ -49,6 +45,7 @@
   border-radius: 12px;
   color: var(--text-primary);
   font-family: inherit;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
   transition: all 0.3s;
 }
 
@@ -91,4 +88,44 @@
   opacity: 0.6;
   cursor: not-allowed;
   transform: none;
+}
+
+/* ─── Tablet ─── */
+@media (max-width: 1024px) {
+  .contact-wrapper {
+    gap: 2rem;
+    padding: 2.5rem;
+  }
+}
+
+/* ─── Mobile ─── */
+@media (max-width: 768px) {
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+    gap: 2rem;
+  }
+
+  .contact-info {
+    text-align: center;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* ─── Small phones ─── */
+@media (max-width: 480px) {
+  .contact-wrapper {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 0.75rem;
+  }
 }

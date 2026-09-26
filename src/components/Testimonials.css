@@ -13,7 +13,7 @@
   justify-content: center;
   width: 100%;
   gap: 2rem;
-  margin-top: 4rem; /* Extra margin for the overlapping header */
+  margin-top: 4rem;
 }
 
 .carousel-content {
@@ -32,7 +32,7 @@
   max-width: 600px;
   margin: 0 auto;
   cursor: grab;
-  padding: 40px 20px 40px 40px; /* Give room for overlapping elements */
+  padding: 40px 20px 40px 40px;
 }
 
 .testimonial-card-wrapper:active {
@@ -61,7 +61,7 @@
 
 .mtc-subtitle {
   font-family: inherit;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 2vw, 1.5rem);
   font-weight: 300;
   color: var(--text-primary);
   margin-bottom: 2rem;
@@ -69,7 +69,7 @@
 }
 
 .mtc-text {
-  font-size: 1.25rem;
+  font-size: clamp(0.95rem, 1.8vw, 1.25rem);
   line-height: 1.8;
   color: var(--text-secondary);
   margin-bottom: 2rem;
@@ -100,7 +100,7 @@
   z-index: 3;
   padding: 1.2rem 3rem;
   border-radius: 40px;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 2vw, 1.5rem);
   font-weight: 500;
   color: var(--text-primary);
 }
@@ -109,7 +109,7 @@
 .mtc-avatar {
   position: absolute;
   top: -10px;
-  left: 260px; /* Positioned just overlapping the name pill */
+  left: 260px;
   z-index: 4;
   width: 80px;
   height: 80px;
@@ -181,6 +181,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   z-index: 10;
+  flex-shrink: 0;
 }
 
 .carousel-btn:hover {
@@ -216,47 +217,130 @@
   box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
+/* ─── Tablet ─── */
+@media (max-width: 1024px) {
   .carousel-wrapper {
     gap: 1rem;
   }
-  
+
+  .mtc-main {
+    padding: 4rem 2rem 5rem 2rem;
+    min-height: 360px;
+  }
+
+  .mtc-avatar {
+    left: 220px;
+  }
+}
+
+/* ─── Mobile ─── */
+@media (max-width: 768px) {
+  .carousel-wrapper {
+    gap: 0.5rem;
+    margin-top: 3rem;
+  }
+
   .testimonial-card-wrapper {
     padding: 20px 10px;
   }
-  
+
   .mtc-main {
-    padding: 5rem 1.5rem 4rem 1.5rem;
+    padding: 5rem 1.25rem 4rem 1.25rem;
+    min-height: 320px;
+    border-radius: 20px;
   }
 
   .mtc-name {
     top: -10px;
     left: 10px;
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
   }
 
   .mtc-avatar {
-    top: -20px;
-    left: 200px;
-    width: 60px;
-    height: 60px;
-    font-size: 1.5rem;
+    top: -18px;
+    left: 170px;
+    width: 56px;
+    height: 56px;
+    font-size: 1.3rem;
   }
 
   .mtc-stars {
     top: 50px;
     left: -5px;
-    padding: 0.6rem 1.2rem;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
   }
 
   .mtc-footer {
-    width: 90%;
-    padding: 1rem 1.5rem;
+    width: 92%;
+    padding: 0.9rem 1.2rem;
   }
-  
+
   .carousel-btn {
     display: none;
+  }
+
+  .carousel-indicators {
+    margin-top: 2rem;
+  }
+}
+
+/* ─── Small phones ─── */
+@media (max-width: 480px) {
+  .testimonial-card-wrapper {
+    padding: 15px 5px;
+  }
+
+  .mtc-main {
+    padding: 5rem 1rem 3.5rem 1rem;
+    min-height: 280px;
+  }
+
+  .mtc-name {
+    left: 5px;
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .mtc-avatar {
+    left: 145px;
+    width: 48px;
+    height: 48px;
+    font-size: 1.1rem;
+    top: -14px;
+  }
+
+  .mtc-stars {
+    top: 44px;
+    left: -8px;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .mtc-footer {
+    width: 95%;
+    padding: 0.75rem 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .mtc-footer-left {
+    gap: 1rem;
+  }
+}
+
+/* ─── Very small ─── */
+@media (max-width: 360px) {
+  .mtc-avatar {
+    left: 120px;
+    width: 42px;
+    height: 42px;
+    font-size: 1rem;
+  }
+
+  .mtc-name {
+    font-size: 0.8rem;
+    padding: 0.6rem 1rem;
   }
 }

@@ -8,7 +8,7 @@
 }
 
 .section-title {
-  font-size: 3rem;
+  font-size: clamp(1.8rem, 4vw, 3rem);
   font-weight: 800;
   margin-bottom: 2rem;
   letter-spacing: -0.02em;
@@ -49,7 +49,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
+  padding: 1rem;
 }
 
 .project-modal-content {
@@ -87,19 +87,21 @@
 }
 
 .modal-details h2 {
-  font-size: 2rem;
+  font-size: clamp(1.3rem, 3vw, 2rem);
   margin-bottom: 0.5rem;
 }
 
 .modal-details p {
   color: #a1a1aa;
   line-height: 1.6;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
 }
 
 .modal-actions {
   display: flex;
   gap: 1rem;
   margin-top: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .primary-btn {
@@ -109,6 +111,9 @@
   border-radius: 12px;
   text-decoration: none;
   font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 .secondary-btn {
@@ -117,25 +122,48 @@
   padding: 0.7rem 1.4rem;
   border-radius: 12px;
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
+/* ─── Tablet ─── */
 @media (max-width: 768px) {
   .modal-actions {
     flex-direction: column;
   }
+
   .primary-btn, .secondary-btn {
     width: 100%;
+    justify-content: center;
     text-align: center;
-    display: inline-block;
     box-sizing: border-box;
   }
+
   .project-modal-content {
-    max-height: 85vh;
+    max-height: 88vh;
+    border-radius: 16px;
   }
+
   .modal-details {
-    padding: 1.5rem;
+    padding: 1.25rem;
   }
-  .modal-details h2 {
-    font-size: 1.5rem;
+}
+
+/* ─── Small phones ─── */
+@media (max-width: 480px) {
+  .project-modal-backdrop {
+    padding: 0.5rem;
+    align-items: flex-end;
+  }
+
+  .project-modal-content {
+    max-height: 92vh;
+    border-radius: 20px 20px 0 0;
+    width: 100%;
+  }
+
+  .modal-details {
+    padding: 1rem;
   }
 }
