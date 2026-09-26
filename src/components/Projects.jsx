@@ -84,6 +84,7 @@ const Projects = () => {
             maxWidth: '550px',
             transformStyle: 'preserve-3d'
           }}
+          className="project-cards-list"
         >
           {projectData.map((project, index) => {
             const pos = cardPositions[index] || cardPositions[0];
