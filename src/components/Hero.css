@@ -96,6 +96,18 @@
     max-width: 100%;
   }
 
+  /* Allow natural wrapping on mobile */
+  .hero-title {
+    white-space: normal;
+    overflow: visible;
+    font-size: clamp(1.6rem, 6vw, 3rem);
+  }
+
+  /* Push the name to its own line */
+  .hero-title .text-gradient {
+    display: block;
+  }
+
   .hero-description {
     margin-bottom: 2rem;
   }
